@@ -31,12 +31,20 @@ function displayPrayerTimes(prayerTimes) {
   // Clear previous prayer times
   prayerTimesContainer.innerHTML = '';
 
+  const selectedPrayers = {
+    Fajr: prayerTimes.Fajr,
+    Dhuhr: prayerTimes.Dhuhr,
+    Asr: prayerTimes.Asr,
+    Maghrib: prayerTimes.Maghrib,
+    Isha: prayerTimes.Isha
+  };
+
   // Create a list of prayer times
   const prayerTimesList = document.createElement('ul');
 
   // Iterate over the prayer times and create list items
-  for (const prayer in prayerTimes) {
-    const prayerTime = prayerTimes[prayer];
+  for (const prayer in selectedPrayers) {
+    const prayerTime = selectedPrayers[prayer];
     const listItem = document.createElement('li');
     listItem.textContent = `${prayer}: ${prayerTime}`;
     prayerTimesList.appendChild(listItem);
