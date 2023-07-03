@@ -4,7 +4,6 @@ const countryInput = document.getElementById('countryInput');
 const submitBtn = document.getElementById('submitBtn');
 const prayerTimesContainer = document.getElementById('prayerTimesContainer');
 
-// Function to fetch prayer times data
 function fetchPrayerTimes() {
   const city = cityInput.value;
   const country = countryInput.value;
@@ -25,7 +24,6 @@ function fetchPrayerTimes() {
       console.error('Error fetching prayer times:', error);
     });
 }
-
 // Function to display the prayer times in the container
 function displayPrayerTimes(prayerTimes) {
   // Clear previous prayer times
@@ -53,8 +51,6 @@ function displayPrayerTimes(prayerTimes) {
   // Append the list to the container
   prayerTimesContainer.appendChild(prayerTimesList);
 }
-
-// Add a click event listener to the submit button
 submitBtn.addEventListener('click', fetchPrayerTimes);
 
 
@@ -85,7 +81,9 @@ function fetchWeather() {
 // Function to display the weather in the container
 function displayWeather(weather) {
   const weatherContainer = document.getElementById('weatherContainer');
-  weatherContainer.innerHTML = 'Temperature: ${weather.temp_c}°C Condition: ${weather.condition.text}';
+  weatherContainer.innerHTML = `Temperature: ${weather.temp_c}°C Condition: ${weather.condition.text}`;
 }
 
 submitBtn.addEventListener('click', fetchWeather);
+
+
