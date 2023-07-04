@@ -24,6 +24,7 @@ function fetchPrayerTimes() {
       console.error('Error fetching prayer times:', error);
     });
 }
+
 // Function to display the prayer times in the container
 function displayPrayerTimes(prayerTimes) {
   // Clear previous prayer times
@@ -43,14 +44,34 @@ function displayPrayerTimes(prayerTimes) {
   // Iterate over the prayer times and create list items
   for (const prayer in selectedPrayers) {
     const prayerTime = selectedPrayers[prayer];
+    const formattedTime = formatTime(prayerTime);
     const listItem = document.createElement('li');
-    listItem.textContent = `${prayer}: ${prayerTime}`;
+    listItem.textContent = `${prayer}: ${formattedTime}`;
     prayerTimesList.appendChild(listItem);
   }
 
   // Append the list to the container
   prayerTimesContainer.appendChild(prayerTimesList);
 }
+
+// Function to format the time from 24-hour to 12-hour format
+function formatTime(time) {
+  const [hours, minutes] = time.split(':');
+  let formattedHours = parseInt(hours);
+  let period = 'AM';
+
+  if (formattedHours >= 12) {
+    formattedHours -= 12;
+    period = 'PM';
+  }
+
+  if (formattedHours === 0) {
+    formattedHours = 12;
+  }
+
+  return `${formattedHours}:${minutes} ${period}`;
+}
+
 submitBtn.addEventListener('click', fetchPrayerTimes);
 
 
@@ -69,6 +90,7 @@ function fetchWeather() {
     .then(data => {
       // Access the weather data from the response
       const weather = data.current;
+    
 
       // Display the weather in the container
       displayWeather(weather);
@@ -81,9 +103,46 @@ function fetchWeather() {
 // Function to display the weather in the container
 function displayWeather(weather) {
   const weatherContainer = document.getElementById('weatherContainer');
-  weatherContainer.innerHTML = `Temperature: ${weather.temp_c}°C Condition: ${weather.condition.text}`;
+  weatherContainer.innerHTML = `The temperature is ${weather.temp_c}°C and the condition is ${weather.condition.text}`;
 }
 
 submitBtn.addEventListener('click', fetchWeather);
+
+function fetchCurrentTime(){
+  const city = cityInput.value;
+  const country = countryInput.value;
+  const method = 2;
+
+  const urlAladhan = `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=${method}`;
+
+  fetch(urlAladhan)
+    .then(response => response.json())
+    .then(data => {
+      // Access the prayer times data from the response
+      const zone = data.data.meta;
+
+      // Display the prayer times in the container
+      displayCurrentTime(zone);
+    })
+    .catch(error => {
+      console.error('Error fetching prayer times:', error);
+    });
+
+}
+
+function displayCurrentTime(zone){
+  const date = new Date();
+
+  const options = {
+    hour: 'numeric',
+    minute: 'numeric',
+    timeZone: zone.timezone
+  };
+  const time = new Intl.DateTimeFormat('en-US', options).format(date);
+  const currentTimeContainer = document.getElementById('timeContainer');
+  currentTimeContainer.innerHTML = `The time is ${time}`;
+}
+
+submitBtn.addEventListener('click', fetchCurrentTime);
 
 
