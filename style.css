@@ -17,7 +17,7 @@ div{
 
 
 /*body{
-    background-color: ; 
+    background-color: D9F3FF; 
     text: #040d25;
     primary: #959af3;
     secondary: #eac3ff;
@@ -25,31 +25,93 @@ div{
 }*/
 
 body{
-    background-color:  #D9F3FF
+    background-color: #ffffff;
 }
 #submitBtn{
-    background-color:#959af3;
-    color: #040d25;
-    border:none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 21px;
+  background-image: -moz-linear-gradient( 90deg, rgb(254,112,175) 0%, rgb(247,78,110) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(254,112,175) 0%, rgb(247,78,110) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(254,112,175) 0%, rgb(247,78,110) 100%);
+  box-shadow: 0px 6px 12.61px 0.39px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  left: 1240px;
+  top: 246px;
+  width: 91px;
+  height: 45px;
+  z-index: 27;
+  border: none;
     cursor: pointer;
+    transition: all 0.1s ease-in-out;
 }
 
 #submitBtn:hover{
-    background-color: #eac3ff;
+    background-color: #ffd56d;
 }
 
 input[type="text"]
 {
-    background-color: #eac3ff;
-    padding: 10px;
-    border: 0px solid #959af3;
-    border-radius: 8px;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 21px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
+  width: 299px;
+  height: 46px;
+  z-index: 25;
+  border: none;
 }
 
 input[type="text"]:focus
 {
-    border: 2px solid #eac3ff;
+    background-color: #eac3ff;
+    font-family: 'Raleway', sans-serif;
+    border: 0px solid #eac3ff;
     outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+#prayerTimesContainer{
+    border-radius: 10px;
+    background-image: -moz-linear-gradient( 90deg, rgb(111,145,255) 0%, rgb(128,251,252) 99%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(111,145,255) 0%, rgb(128,251,252) 99%);
+  background-image: -ms-linear-gradient( 90deg, rgb(111,145,255) 0%, rgb(128,251,252) 99%);
+  box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
+  position: absolute;
+  left: 759px;
+  top: 390px;
+  width: 395px;
+  height: 584px;
+  z-index: 3;
+    
+}
+
+#timeContainer{
+        border-radius: 10px;
+        background-image: -moz-linear-gradient( 90deg, rgb(111,255,179) 0%, rgb(237,255,118) 99%);
+        background-image: -webkit-linear-gradient( 90deg, rgb(111,255,179) 0%, rgb(237,255,118) 99%);
+        background-image: -ms-linear-gradient( 90deg, rgb(111,255,179) 0%, rgb(237,255,118) 99%);
+        box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
+        position: absolute;
+        left: 1200px;
+        top: 390px;
+        width: 385px;
+        height: 584px;
+        z-index: 4;
+}
+
+#weatherContainer{
+        border-radius: 10px;
+        background-image: -moz-linear-gradient( 90deg, rgb(255,174,138) 1%, rgb(255,216,111) 100%);
+        background-image: -webkit-linear-gradient( 90deg, rgb(255,174,138) 1%, rgb(255,216,111) 100%);
+        background-image: -ms-linear-gradient( 90deg, rgb(255,174,138) 1%, rgb(255,216,111) 100%);
+        box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
+        position: absolute;
+        left: 328px;
+        top: 390px;
+        width: 385px;
+        height: 584px;
+        z-index: 6;
 }
