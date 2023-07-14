@@ -2,6 +2,7 @@
 const cityInput = document.getElementById('cityInput');
 const countryInput = document.getElementById('countryInput');
 const submitBtn = document.getElementById('submitBtn');
+const locationHeader = document.getElementById("locationHeader");
 var prayerTimesContainer = document.getElementById('prayerTimesContainer');
 var weatherContainer = document.getElementById('weatherContainer');
 var timeContainer = document.getElementById('timeContainer');
@@ -14,6 +15,15 @@ prayerTimesContainer.classList.add('show');
 weatherContainer.classList.add('show');
 timeContainer.classList.add('show');
 
+// Add an event listener to the submit button
+document.getElementById("submitBtn").addEventListener("click", updateLocationHeader);
+
+// Function to update the location header with the user input
+function updateLocationHeader() {
+    const city = cityInput.value;
+    const country = countryInput.value;
+    locationHeader.textContent = city + ", " + country;
+}
 
 function fetchPrayerTimes() {
   const city = cityInput.value;
@@ -117,7 +127,7 @@ function fetchWeather() {
 // Function to display the weather in the container
 function displayWeather(weather) {
   const weatherContainer = document.getElementById('weatherContainer');
-  weatherContainer.innerHTML = `The temperature is ${weather.temp_c}°C and the condition is ${weather.condition.text}`;
+  weatherContainer.innerHTML = `The temperature is <br> ${weather.temp_c}°C<br> and the condition is <br>${weather.condition.text}`;
 }
 
 submitBtn.addEventListener('click', fetchWeather);
@@ -154,7 +164,7 @@ function displayCurrentTime(zone){
   };
   const time = new Intl.DateTimeFormat('en-US', options).format(date);
   const currentTimeContainer = document.getElementById('timeContainer');
-  currentTimeContainer.innerHTML = `The time is ${time}`;
+  currentTimeContainer.innerHTML = `The time is <br>${time}`;
 }
 
 submitBtn.addEventListener('click', fetchCurrentTime);
