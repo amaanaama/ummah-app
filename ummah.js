@@ -10,6 +10,10 @@ prayerTimesContainer.style.display = 'none';
 weatherContainer.style.display = 'none';
 timeContainer.style.display = 'none';
 
+prayerTimesContainer.classList.add('show');
+weatherContainer.classList.add('show');
+timeContainer.classList.add('show');
+
 
 function fetchPrayerTimes() {
   const city = cityInput.value;
