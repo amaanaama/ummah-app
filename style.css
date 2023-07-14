@@ -15,15 +15,6 @@ div{
     color: #040d25;
 }
 
-
-/*body{
-    background-color: D9F3FF; 
-    text: #040d25;
-    primary: #959af3;
-    secondary: #eac3ff;
-    accent: #ffd56d;
-}*/
-
 body{
     background-color: #ffffff;
 }
@@ -74,44 +65,65 @@ input[type="text"]:focus
 }
 
 #prayerTimesContainer{
+   
     border-radius: 10px;
     background-image: -moz-linear-gradient( 90deg, rgb(111,145,255) 0%, rgb(128,251,252) 99%);
   background-image: -webkit-linear-gradient( 90deg, rgb(111,145,255) 0%, rgb(128,251,252) 99%);
   background-image: -ms-linear-gradient( 90deg, rgb(111,145,255) 0%, rgb(128,251,252) 99%);
   box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
   position: absolute;
-  left: 759px;
-  top: 390px;
-  width: 395px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 385px;
   height: 584px;
   z-index: 3;
+  display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+
     
 }
 
 #timeContainer{
+   
         border-radius: 10px;
         background-image: -moz-linear-gradient( 90deg, rgb(111,255,179) 0%, rgb(237,255,118) 99%);
         background-image: -webkit-linear-gradient( 90deg, rgb(111,255,179) 0%, rgb(237,255,118) 99%);
         background-image: -ms-linear-gradient( 90deg, rgb(111,255,179) 0%, rgb(237,255,118) 99%);
         box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
         position: absolute;
-        left: 1200px;
-        top: 390px;
+        left: calc(60% - 50px);
         width: 385px;
         height: 584px;
         z-index: 4;
+        display: inline-block;
+  margin: 10px;
+  vertical-align: top;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+       
 }
 
+
+
 #weatherContainer{
+    
         border-radius: 10px;
         background-image: -moz-linear-gradient( 90deg, rgb(255,174,138) 1%, rgb(255,216,111) 100%);
         background-image: -webkit-linear-gradient( 90deg, rgb(255,174,138) 1%, rgb(255,216,111) 100%);
         background-image: -ms-linear-gradient( 90deg, rgb(255,174,138) 1%, rgb(255,216,111) 100%);
         box-shadow: 0px 20px 49.47px 1.53px rgba(0, 0, 0, 0.13);
         position: absolute;
-        left: 328px;
-        top: 390px;
+        left: calc(36.5% - 50px);
+  top: 50%;
+  transform: translate(-50%, -50%);
         width: 385px;
         height: 584px;
         z-index: 6;
+        display: inline-block;
+        margin: 10px;
+        vertical-align: top;
+        
 }

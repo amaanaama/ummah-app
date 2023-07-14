@@ -2,7 +2,14 @@
 const cityInput = document.getElementById('cityInput');
 const countryInput = document.getElementById('countryInput');
 const submitBtn = document.getElementById('submitBtn');
-const prayerTimesContainer = document.getElementById('prayerTimesContainer');
+var prayerTimesContainer = document.getElementById('prayerTimesContainer');
+var weatherContainer = document.getElementById('weatherContainer');
+var timeContainer = document.getElementById('timeContainer');
+
+prayerTimesContainer.style.display = 'none';
+weatherContainer.style.display = 'none';
+timeContainer.style.display = 'none';
+
 
 function fetchPrayerTimes() {
   const city = cityInput.value;
@@ -11,6 +18,9 @@ function fetchPrayerTimes() {
 
   const url = `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=${method}`;
 
+  prayerTimesContainer.style.display = 'block';
+  weatherContainer.style.display = 'block';
+  timeContainer.style.display = 'block';
   fetch(url)
     .then(response => response.json())
     .then(data => {
